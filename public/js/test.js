@@ -11,7 +11,7 @@ function init(){
 
 	var position = { x : 0, y: 0 };
 	var target = { x : 1, y: 0 };
-	var tween = new TWEEN.Tween(position).to(target, 2000);
+	var tween = new TWEEN.Tween(position).to(position,5000);
 
 	tween.onUpdate(function(){
     cube.position.x = position.x;
@@ -20,6 +20,7 @@ function init(){
 	tween.start();
 	var animate = function() {
     requestAnimationFrame(animate);
+		tween.to({x:-3})
     render(renderer, scene, camera);
   };
   animate();
